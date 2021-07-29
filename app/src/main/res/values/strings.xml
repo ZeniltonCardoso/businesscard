@@ -1,3 +1,12 @@
 <resources>
     <string name="app_name">BusinessCard</string>
+    <string name="business_cards">Cartão de visita</string>
+    <string name="button_add">button add</string>
+    <string name="new_card">Novo Cartão</string>
+    <string name="name">Nome</string>
+    <string name="cell_phone">Telefone</string>
+    <string name="email">Email</string>
+    <string name="name_company">Nome da Empresa</string>
+    <string name="color">Cor</string>
+    <string name="confirm">Confirmar</string>
 </resources>
