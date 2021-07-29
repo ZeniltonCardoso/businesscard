@@ -2,16 +2,25 @@ package br.com.zc.businesscard.ui
 
 import android.content.Intent
 import android.os.Bundle
+import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import br.com.zc.businesscard.Application
 import br.com.zc.businesscard.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
     
     private val binding by lazy {ActivityMainBinding.inflate(layoutInflater)}
+    private val mainViewModel: MainViewModel by viewModels {
+        MainViewModelFactory((application as Application).repository)
+    }
+
+    private val adapter by lazy { BusinessCardAdapter() }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
+        binding.rvCards.adapter = adapter
+        getAllBusinessCard()
         insetListener()
     }
 
@@ -20,5 +29,11 @@ class MainActivity : AppCompatActivity() {
             val intent = Intent(this@MainActivity, AddBusinessCardActivity::class.java)
             startActivity(intent)
         }
+    }
+    
+    private fun getAllBusinessCard() {
+        mainViewModel.getAll().observe(this, {businessCard ->
+            adapter.submitList(businessCard)
+        } )
     }
 }
