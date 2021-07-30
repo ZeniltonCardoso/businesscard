@@ -9,4 +9,5 @@
     <string name="name_company">Nome da Empresa</string>
     <string name="color">Cor</string>
     <string name="confirm">Confirmar</string>
+    <string name="show_sucess">Cartão cadastrado com sucesso.</string>
 </resources>
